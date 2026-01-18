@@ -1,3 +1,38 @@
+#!/usr/bin/env -S uv run
+# /// script
+# requires-python = ">=3.9"
+# dependencies = [
+#   "certifi==2026.1.4",
+#   "charset-normalizer==3.4.4",
+#   "contourpy==1.3.3",
+#   "cycler==0.12.1",
+#   "fonttools==4.61.1",
+#   "geographiclib==2.1",
+#   "geopandas==1.1.2",
+#   "geopy==2.4.1",
+#   "idna==3.11",
+#   "kiwisolver==1.4.9",
+#   "matplotlib==3.10.8",
+#   "networkx==3.6.1",
+#   "numpy==2.4.0",
+#   "osmnx==2.0.7",
+#   "packaging==25.0",
+#   "pandas==2.3.3",
+#   "pillow==12.1.0",
+#   "pyogrio==0.12.1",
+#   "pyparsing==3.3.1",
+#   "pyproj==3.7.2",
+#   "python-dateutil==2.9.0.post0",
+#   "pytz==2025.2",
+#   "requests==2.32.5",
+#   "scipy==1.16.3",
+#   "shapely==2.1.2",
+#   "six==1.17.0",
+#   "tqdm==4.67.1",
+#   "tzdata==2025.3",
+#   "urllib3==2.6.3",
+# ]
+# ///
 import osmnx as ox
 import matplotlib.pyplot as plt
 from matplotlib.font_manager import FontProperties
@@ -403,7 +438,7 @@ def list_themes():
             print(f"    {description}")
         print()
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(
         description="Generate beautiful map posters for any city",
         formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -440,9 +475,9 @@ Examples:
         print_examples()
         os.sys.exit(1)
     
-    # Validate theme exists
+    # Validate theme exists (only if themes are available)
     available_themes = get_available_themes()
-    if args.theme not in available_themes:
+    if available_themes and args.theme not in available_themes:
         print(f"Error: Theme '{args.theme}' not found.")
         print(f"Available themes: {', '.join(available_themes)}")
         os.sys.exit(1)
@@ -469,3 +504,6 @@ Examples:
         import traceback
         traceback.print_exc()
         os.sys.exit(1)
+
+if __name__ == "__main__":
+    main()

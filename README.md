@@ -20,6 +20,38 @@ Generate beautiful, minimalist map posters for any city in the world.
 | Australia    | Melbourne      | forest          | <img src="posters/melbourne_forest_20260108_181459.png" width="250"> |
 | UAE          | Dubai          | midnight_blue   | <img src="posters/dubai_midnight_blue_20260108_174920.png" width="250"> |
 
+## Quick Start with uv
+
+You can run this project directly without cloning using [uv](https://docs.astral.sh/uv/):
+
+### Method 1: Using uvx (Recommended)
+
+```bash
+# Install from GitHub and run
+uvx --from git+https://github.com/SimonMTaye/maptoposter create-map-poster --list-themes
+
+# Generate a map poster
+uvx --from git+https://github.com/SimonMTaye/maptoposter create-map-poster \
+  --city "Paris" --country "France" --distance 10000
+```
+
+### Method 2: Run script directly from URL
+
+```bash
+# Run directly from GitHub
+uv run https://raw.githubusercontent.com/SimonMTaye/maptoposter/main/create_map_poster.py --list-themes
+
+# Generate a map poster
+uv run https://raw.githubusercontent.com/SimonMTaye/maptoposter/main/create_map_poster.py \
+  --city "Paris" --country "France" --theme feature_based --distance 10000
+```
+
+**Note:** When running without cloning the repository, font and theme files won't be available. The script will fall back to:
+- System fonts instead of Roboto fonts
+- Default embedded theme (feature_based) instead of custom themes from the repository
+
+For full functionality with custom themes and fonts, use the installation method below.
+
 ## Installation
 
 ```bash
