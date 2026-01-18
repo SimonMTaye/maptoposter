@@ -475,9 +475,9 @@ Examples:
         print_examples()
         os.sys.exit(1)
     
-    # Validate theme exists
+    # Validate theme exists (only if themes are available)
     available_themes = get_available_themes()
-    if args.theme not in available_themes:
+    if available_themes and args.theme not in available_themes:
         print(f"Error: Theme '{args.theme}' not found.")
         print(f"Available themes: {', '.join(available_themes)}")
         os.sys.exit(1)
