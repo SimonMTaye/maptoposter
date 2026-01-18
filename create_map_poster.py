@@ -438,7 +438,7 @@ def list_themes():
             print(f"    {description}")
         print()
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(
         description="Generate beautiful map posters for any city",
         formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -504,3 +504,6 @@ Examples:
         import traceback
         traceback.print_exc()
         os.sys.exit(1)
+
+if __name__ == "__main__":
+    main()

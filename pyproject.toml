@@ -41,6 +41,9 @@ dependencies = [
     "urllib3==2.6.3",
 ]
 
+[project.scripts]
+create-map-poster = "create_map_poster:main"
+
 [build-system]
 requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
